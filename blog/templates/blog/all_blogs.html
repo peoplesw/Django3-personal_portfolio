@@ -1,0 +1,18 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+
+    <div class="container text-center">
+      <h1 style="display: inline;">Will's Blogs</h1>
+      <h5 style="display: inline;">({{ All_blogs.count }} post{{ All_blogs.count|pluralize }} total!)</h5>
+    </div>
+    <br>
+    <div class="container">
+      {% for blog in All_blogs %}
+        <a href="{% url 'blog:detail' blog.id %}"><h3>{{ blog.title }}</h3></a>
+        <p style="color: grey;">{{ blog.date|date:"M d Y" }}</p> <!-- this is how you customize the date format -->
+        <p style="color: black;">{{ blog.message|truncatechars:100 }}</p>
+        <hr>
+      {% endfor %}
+    </div>
+
+{% endblock %}

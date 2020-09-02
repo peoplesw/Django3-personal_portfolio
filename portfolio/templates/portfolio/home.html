@@ -1,0 +1,27 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+    <div class="container text-center">
+      <h1>Will's Portfolio</h1>
+      <br>
+
+      {% load static %} <!-- you need to put this before any static images you want to load or it won't work -->
+      <img src="{% static 'portfolio/Spaceship.jpeg' %}" height="335" width="435">
+    </div>
+
+    <div class="conatainer text-center">
+      <!-- This is Django's templating language -->
+      {% for proj in Projects %} <!-- the list from the Project key was passed -->
+                                 <!-- from views.py and we are iterating over all of the -->
+                                 <!-- python objects pulled from the db here -->
+      <hr>
+      <h2>{{ proj.title }}</h2>
+      <p>{{ proj.description }}</p>
+      <a href="{{ proj.url }}" target="_blank"><img src= "{{ proj.image.url }}" target="_blank" height="300" width="300"></a>
+      <br>
+      <br>
+      {% endfor %}
+    </div>
+    <br>
+
+
+{% endblock %}
