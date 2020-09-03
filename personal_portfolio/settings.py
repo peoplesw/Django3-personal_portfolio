@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = '@0e2%*pbm1n!0wih5%ql@1jie8gr0)=b3ovg7iy9-v_mff71v2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['willpeoples1.pythonanywhere.com']
 
 
 # Application definition
@@ -120,6 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static' # you need this for static images to load on the web page!
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # you need this for static images to load on the web page!
 MEDIA_URLS = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
